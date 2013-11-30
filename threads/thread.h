@@ -5,6 +5,7 @@
 #include <list.h>
 #include <stdint.h>
 #include "synch.h"
+#include <hash.h>
 
 /* States in a thread's life cycle. */
 enum thread_status
@@ -113,6 +114,8 @@ struct thread
 	struct list file_list;
 	int fd_total;
 	int exit_flag;
+
+	struct hash spt;
 };
 
 /* If false (default), use round-robin scheduler.
